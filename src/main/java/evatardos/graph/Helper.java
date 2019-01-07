@@ -17,10 +17,10 @@ public class Helper {
         Vertex<String> d = new Vertex<>("d");
         Vertex<String> e = new Vertex<>("e");
         Vertex<String> f = new Vertex<>("f");
-        Vertex<String> g = new Vertex<>("g");
-        Vertex<String> h = new Vertex<>("h");
-        Vertex<String> i = new Vertex<>("i");
-        Vertex<String> j = new Vertex<>("j");
+//        Vertex<String> g = new Vertex<>("g");
+//        Vertex<String> h = new Vertex<>("h");
+//        Vertex<String> i = new Vertex<>("i");
+//        Vertex<String> j = new Vertex<>("j");
 
         List<Vertex> vertices = new LinkedList<>();
         vertices.add(a);
@@ -29,10 +29,10 @@ public class Helper {
         vertices.add(d);
         vertices.add(e);
         vertices.add(f);
-        vertices.add(g);
-        vertices.add(h);
-        vertices.add(i);
-        vertices.add(j);
+//        vertices.add(g);
+//        vertices.add(h);
+//        vertices.add(i);
+//        vertices.add(j);
 
         Helper.vertices = vertices;
 
@@ -43,8 +43,8 @@ public class Helper {
         Edge e3 = new Edge(b, c);
         Edge e4 = new Edge(b, e);
         Edge e5 = new Edge(d, f);
-        Edge e6 = new Edge(g, h);
-        Edge e7 = new Edge(g, i);
+        Edge e6 = new Edge(e, f);
+//        Edge e7 = new Edge(g, i);
 
         List<Edge> edges = new LinkedList<>();
         edges.add(e1);
@@ -53,13 +53,40 @@ public class Helper {
         edges.add(e4);
         edges.add(e5);
         edges.add(e6);
-        edges.add(e7);
+//        edges.add(e7);
 
         Helper.edges = edges;
 
-        Graph graph = new Graph(vertices, edges);
+        Graph graph = new Graph(vertices, edges, false);
         src = a;
 
+        return graph;
+    }
+
+    public static Graph getDirectedGraph(){
+        Vertex<String> a = new Vertex<>("a");
+        Vertex<String> b = new Vertex<>("b");
+        Vertex<String> c = new Vertex<>("c");
+        Vertex<String> d = new Vertex<>("d");
+
+        List<Vertex> vertices = new LinkedList<>();
+        vertices.add(a);
+        vertices.add(b);
+        vertices.add(c);
+        vertices.add(d);
+
+        Edge e1 = new Edge(a, b);
+        Edge e2 = new Edge(d, a);
+        Edge e3 = new Edge(b, c);
+        Edge e4 = new Edge(c, d);
+
+        List<Edge> edges = new LinkedList<>();
+        edges.add(e1);
+        edges.add(e2);
+        edges.add(e3);
+        edges.add(e4);
+
+        Graph graph = new Graph(vertices, edges, true);
         return graph;
     }
 }

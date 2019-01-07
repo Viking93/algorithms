@@ -18,5 +18,7 @@ public class Main {
         printResult(BFS.run(Helper.setupGraph(), Helper.src));
         printResult(DFS.run(Helper.setupGraph(), Helper.src));
         System.out.println(ConnectedComponent.findConnectedComponents(Helper.setupGraph()).size());
+        System.out.println(Bipartite.isBiPartite(Helper.setupGraph()));
+        System.out.println(Cycle.isCyclePresent(Helper.getDirectedGraph()));
     }
 }

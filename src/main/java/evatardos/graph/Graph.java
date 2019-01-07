@@ -6,7 +6,7 @@ public class Graph {
     private List<Vertex> vertices;
     private Map<Vertex, List<Vertex>> adjList = new HashMap<>();
 
-    public Graph(List<Vertex> vertices, List<Edge> edges){
+    public Graph(List<Vertex> vertices, List<Edge> edges, boolean directed){
         this.vertices = vertices;
 
         for (Vertex vertex : vertices){
@@ -20,8 +20,12 @@ public class Graph {
             List<Vertex> srcList = adjList.get(src);
             List<Vertex> dstList = adjList.get(dst);
 
+
             srcList.add(dst);
-            dstList.add(src);
+
+            if(!directed){
+                dstList.add(src);
+            }
         }
     }
 
