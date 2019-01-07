@@ -48,7 +48,7 @@ public class Cycle  {
             vertexStateInfo.put(vertex, STATE.UNSEEN);
         }
 
-        //for graoh having more than one connected components
+        //for graph having more than one connected components
         for(Vertex vertex : adjList.keySet()){
             if(detectCycleConnected(graph, vertexStateInfo, vertex)){
                 return true;
