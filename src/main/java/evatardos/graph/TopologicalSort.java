@@ -7,27 +7,23 @@ public class TopologicalSort {
         List<Vertex> topologicalOrdering = new LinkedList<>();
         Map<Vertex, List<Vertex>> adjList = graph.getAdjList();
         List<Vertex> vertices = new LinkedList<>(adjList.keySet());
-        Map<Vertex, STATE> visited = new HashMap<>();
+        Set<Vertex> visited = new HashSet<>();
         Stack<Vertex> stack = new Stack<>();
 
-        for (Vertex vertex : vertices){
-            visited.put(vertex, STATE.UNSEEN);
-        }
-
         for(Vertex vertex : vertices){
-            if(visited.get(vertex) == STATE.UNSEEN){
+            if(!visited.contains(vertex)){
 
                 stack.push(vertex);
 
                 while (!stack.empty()){
                     Vertex top = stack.peek();
 
-                    if(visited.get(top) == STATE.UNSEEN){
-                        visited.put(top, STATE.SEEN);
+                    if(!visited.contains(top)){
+                        visited.add(top);
                         int verticesPushed = 0;
 
                         for (Vertex u : adjList.get(top)){
-                            if(visited.get(u) == STATE.UNSEEN){
+                            if(!visited.contains(u)){
                                 stack.push(u);
                                 verticesPushed++;
                             }
@@ -48,10 +44,5 @@ public class TopologicalSort {
         }
 
         return topologicalOrdering;
-    }
-
-    enum STATE{
-        SEEN,
-        UNSEEN
     }
 }

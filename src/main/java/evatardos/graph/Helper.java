@@ -89,4 +89,41 @@ public class Helper {
         Graph graph = new Graph(vertices, edges, true);
         return graph;
     }
+
+    public static Graph getDirectedGraphForTopologicalSort(){
+        Vertex<String> a = new Vertex<>("a");
+        Vertex<String> b = new Vertex<>("b");
+        Vertex<String> c = new Vertex<>("c");
+        Vertex<String> d = new Vertex<>("d");
+        Vertex<String> e = new Vertex<>("e");
+        Vertex<String> f = new Vertex<>("f");
+
+        List<Vertex> vertices = new LinkedList<>();
+        vertices.add(a);
+        vertices.add(b);
+        vertices.add(c);
+        vertices.add(d);
+        vertices.add(e);
+        vertices.add(f);
+
+        Edge e1 = new Edge(b, a);
+        Edge e2 = new Edge(d, b);
+        Edge e3 = new Edge(c, a);
+        Edge e4 = new Edge(f, d);
+        Edge e5 = new Edge(f, e);
+        Edge e6 = new Edge(e, c);
+        Edge e7 = new Edge(e, b);
+
+        List<Edge> edges = new LinkedList<>();
+        edges.add(e1);
+        edges.add(e2);
+        edges.add(e3);
+        edges.add(e4);
+        edges.add(e5);
+        edges.add(e6);
+        edges.add(e7);
+
+        Graph graph = new Graph(vertices, edges, true);
+        return graph;
+    }
 }

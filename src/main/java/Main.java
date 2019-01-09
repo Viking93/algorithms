@@ -20,5 +20,6 @@ public class Main {
         System.out.println(ConnectedComponent.findConnectedComponents(Helper.setupGraph()).size());
         System.out.println(Bipartite.isBiPartite(Helper.setupGraph()));
         System.out.println(Cycle.isCyclePresent(Helper.getDirectedGraph()));
+        printResult(TopologicalSort.topologicalSort(Helper.getDirectedGraphForTopologicalSort()));
     }
 }
